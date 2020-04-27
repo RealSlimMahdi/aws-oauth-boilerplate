@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useUser } from "./context/auth/user";
 
 function App() {
+  const { userState, GoogleSignIn, signOut, loading } = useUser();
+
+  const Welcome = (props) => {
+    return (
+      <div>
+        <h3>Welcome </h3>
+      </div>
+    );
+  };
+  const Login = (props) => {
+    return (
+      <div>
+        <h3>Login</h3>
+      </div>
+    );
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    !loading && (
+      <div>
+        {userState.user ? <Welcome /> : <Login />}
+        <button onClick={GoogleSignIn}>Google Sign In</button>
+        <button onClick={signOut}>Google SignOut</button>
+      </div>
+    )
   );
 }
-
 export default App;

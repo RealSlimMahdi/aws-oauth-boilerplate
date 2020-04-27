@@ -1,0 +1,22 @@
+{
+    "devone": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-oauthboiler-devone-160410-authRole",
+            "UnauthRoleArn": "arn:aws:iam::520686459319:role/amplify-oauthboiler-devone-160410-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::520686459319:role/amplify-oauthboiler-devone-160410-authRole",
+            "Region": "eu-central-1",
+            "DeploymentBucketName": "amplify-oauthboiler-devone-160410-deployment",
+            "UnauthRoleName": "amplify-oauthboiler-devone-160410-unauthRole",
+            "StackName": "amplify-oauthboiler-devone-160410",
+            "StackId": "arn:aws:cloudformation:eu-central-1:520686459319:stack/amplify-oauthboiler-devone-160410/cdaf3ef0-87c6-11ea-ac8e-0a54af97727a",
+            "AmplifyAppId": "dvkytr36ejks4"
+        },
+        "categories": {
+            "auth": {
+                "oauthboilerf083287b": {
+                    "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"169777207398-uk4o9l37mrgmfb9inq4so6i8k87qq9ip.apps.googleusercontent.com\",\"client_secret\":\"Y0_UrjY07_GIPkc7UjtKffrZ\"}]"
+                }
+            }
+        }
+    }
+}

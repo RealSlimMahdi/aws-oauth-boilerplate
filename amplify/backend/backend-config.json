@@ -1,0 +1,9 @@
+{
+	"auth": {
+		"oauthboilerf083287b": {
+			"service": "Cognito",
+			"providerPlugin": "awscloudformation",
+			"dependsOn": []
+		}
+	}
+}
