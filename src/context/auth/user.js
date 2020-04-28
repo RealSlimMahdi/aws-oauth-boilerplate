@@ -21,9 +21,11 @@ export const UserProvider = ({ children }) => {
   const { loading } = userState;
 
   useEffect(() => {
+    // Set loading to true
+    dispatch({ type: "LOADING" });
     // set listener for auth events
     Hub.listen("auth", (data) => {
-      setImmediate(() => dispatch({ type: "LOADING" }));
+      //   setImmediate(() => dispatch({ type: "LOADING" }));
       const { payload } = data;
       if (payload.event === "signIn") {
         setImmediate(() => checkUser(dispatch));
@@ -38,6 +40,7 @@ export const UserProvider = ({ children }) => {
     if (!window.location.search.includes("?signedin=true")) {
       checkUser(dispatch);
     }
+    dispatch({ type: "NOT_LOADING" });
   }, []);
 
   async function checkUser(dispatch) {
