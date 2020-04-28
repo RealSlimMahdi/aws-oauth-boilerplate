@@ -10,7 +10,7 @@ Amplify.configure(awsconfig);
 // Don't worry about the `null` value. It's gonna be *instantly* overriden by the component below
 export const UserContext = createContext(null);
 
-export const initialUserState = { user: null, loading: true, isAuthenticated: false, errors: null };
+export const initialUserState = { user: null, loading: false, isAuthenticated: false, errors: null };
 // Create a "controller" component that will calculate all the data that we need to give to our
 // components bellow via the `UserContext.Provider` component. This is where the Amplify will be
 // mapped to a different interface, the one that we are going to expose to the rest of the app.
@@ -38,7 +38,6 @@ export const UserProvider = ({ children }) => {
     if (!window.location.search.includes("?signedin=true")) {
       checkUser(dispatch);
     }
-    setImmediate(() => dispatch({ type: "NOT_LOADING" }));
   }, []);
 
   async function checkUser(dispatch) {

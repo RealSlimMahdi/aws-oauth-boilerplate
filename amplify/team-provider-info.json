@@ -16,6 +16,12 @@
                 "oauthboilerf083287b": {
                     "hostedUIProviderCreds": "[{\"ProviderName\":\"Google\",\"client_id\":\"169777207398-uk4o9l37mrgmfb9inq4so6i8k87qq9ip.apps.googleusercontent.com\",\"client_secret\":\"Y0_UrjY07_GIPkc7UjtKffrZ\"}]"
                 }
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "dvkytr36ejks4",
+                    "type": "cicd"
+                }
             }
         }
     }
