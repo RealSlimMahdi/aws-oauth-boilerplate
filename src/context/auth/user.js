@@ -26,7 +26,6 @@ export const UserProvider = (props) => {
   console.log("Enter User Provider");
 
   useEffect(() => {
-    console.log("Enter User Provider Useeffect");
     // Set loading to true
     dispatch({ type: "LOADING" });
 
@@ -40,11 +39,9 @@ export const UserProvider = (props) => {
       //   setImmediate(() => dispatch({ type: "LOADING" }));
       const { payload } = data;
       if (payload.event === "signIn") {
-        console.log("SignIn Detected");
         setImmediate(() => checkUser(dispatch));
         // setImmediate(() => dispatch({ type: "LOGIN_USER", payload: payload.data }));
       } else if (payload.event === "signOut") {
-        console.log("SignOUT Detected");
         setImmediate(() => dispatch({ type: "SIGNOUT_USER" }));
       }
     });

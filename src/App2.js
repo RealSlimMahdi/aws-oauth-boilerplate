@@ -5,17 +5,11 @@ import useAmplifyAuth from "./context/auth2/useAmplifyAuth";
 
 export const UserContext2 = React.createContext();
 
-
-
 function App2() {
-  // const { user, loading, GoogleSignIn, signOut } = useUserContext();
-
   const {
     state: { user },
     handleSignout,
   } = useAmplifyAuth();
-
-  console.log(user);
 
   const Welcome = (props) => {
     return (
