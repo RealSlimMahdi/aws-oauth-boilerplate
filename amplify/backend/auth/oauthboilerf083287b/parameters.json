@@ -40,5 +40,5 @@
   },
   "permissions": [],
   "dependsOn": [],
-  "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/,https://master.dvkytr36ejks4.amplifyapp.com/\"],\"LogoutURLs\":[\"http://localhost:3000/,https://master.dvkytr36ejks4.amplifyapp.com/\"]}"
+  "oAuthMetadata": "{\"AllowedOAuthFlows\":[\"code\"],\"AllowedOAuthScopes\":[\"phone\",\"email\",\"openid\",\"profile\",\"aws.cognito.signin.user.admin\"],\"CallbackURLs\":[\"http://localhost:3000/\",\"https://master.dvkytr36ejks4.amplifyapp.com/\"],\"LogoutURLs\":[\"http://localhost:3000/\",\"https://master.dvkytr36ejks4.amplifyapp.com/\"]}"
 }

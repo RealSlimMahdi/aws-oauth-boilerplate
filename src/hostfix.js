@@ -1,5 +1,7 @@
 import config from "./aws-exports";
 
+// Source: https://github.com/arelaxtest/amplify-auth-demo/blob/master/src/index.js
+
 var urlsIn = config.oauth.redirectSignIn.split(",");
 var urlsOut = config.oauth.redirectSignOut.split(",");
 const oauth = {
