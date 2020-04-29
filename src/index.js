@@ -5,9 +5,9 @@ import App from "./App";
 import App2 from "./App2";
 import App3 from "./App3";
 import { Amplify } from "aws-amplify";
-import { awsmobile } from "./hostfix";
+import configUpdate from "./hostfix";
 
-Amplify.configure(awsmobile);
+Amplify.configure(configUpdate);
 
 ReactDOM.render(
   <>
