@@ -5,9 +5,9 @@ const App3 = () => {
   const [userDetails, setUserDetails] = useState({});
   const [isUserloggedIn, setIsUserloggedIn] = useState(false);
 
-  useEffect(() => {
-    return () => {};
-  }, []);
+  // useEffect(() => {
+  //   return () => {};
+  // }, []);
 
   const responseGoogle = (response) => {
     // let email = response.profileObj.email.toString().toLowerCase();
@@ -28,11 +28,12 @@ const App3 = () => {
 
   const logout = () => {
     setIsUserloggedIn(false);
+    setUserDetails({});
   };
 
   return (
     <div>
-      {isUserloggedIn && userDetails && <h3>Welcome mr {userDetails.givenName}</h3>}
+      {isUserloggedIn && <h3>Welcome mr {userDetails.givenName}</h3>}
       <GoogleLogin
         clientId={process.env.REACT_APP_GOOGLE_SECRET_CODE}
         fields="first_name,last_name,email,picture"
