@@ -1,38 +1,50 @@
-import React, { useEffect, createContext, useReducer } from "react";
-import { Amplify, Auth, Hub } from "aws-amplify";
+import React, { useEffect, useReducer } from "react";
+import { Auth, Hub } from "aws-amplify";
 import userReducer from "./userReducer";
-import awsconfig from "../../aws-exports";
-
-// Amplify configuration:
-Amplify.configure(awsconfig);
+import UserContext from "./UserContext";
 
 // Create a context that will hold the values that we are going to expose to our components.
 // Don't worry about the `null` value. It's gonna be *instantly* overriden by the component below
-export const UserContext = createContext(null);
+// export const UserContext = createContext(null);
 
-export const initialUserState = { user: null, loading: false, isAuthenticated: false, errors: null };
 // Create a "controller" component that will calculate all the data that we need to give to our
 // components bellow via the `UserContext.Provider` component. This is where the Amplify will be
 // mapped to a different interface, the one that we are going to expose to the rest of the app.
-export const UserProvider = ({ children }) => {
+export const UserProvider = (props) => {
+  // Initial State
+  const initialUserState = {
+    user: null,
+    loading: false,
+    isAuthenticated: false,
+    isAuthenticating: false,
+    errors: null,
+  };
+
   //   const [user, setUser] = React.useState(null);
   const [userState, dispatch] = useReducer(userReducer, initialUserState);
 
-  const { loading } = userState;
+  console.log("Enter User Provider");
 
   useEffect(() => {
+    console.log("Enter User Provider Useeffect");
     // Set loading to true
     dispatch({ type: "LOADING" });
+
+    // Check if User exists
+    Auth.currentAuthenticatedUser()
+      .then((user) => dispatch({ type: "LOGIN_USER", payload: user }))
+      .catch((err) => console.log(err));
+
     // set listener for auth events
-    Hub.listen("auth", (data) => {
+    Hub.listen("auth", async (data) => {
       //   setImmediate(() => dispatch({ type: "LOADING" }));
       const { payload } = data;
       if (payload.event === "signIn") {
+        console.log("SignIn Detected");
         setImmediate(() => checkUser(dispatch));
         // setImmediate(() => dispatch({ type: "LOGIN_USER", payload: payload.data }));
-      }
-      // this listener is needed for form sign ups since the OAuth will redirect & reload
-      if (payload.event === "signOut") {
+      } else if (payload.event === "signOut") {
+        console.log("SignOUT Detected");
         setImmediate(() => dispatch({ type: "SIGNOUT_USER" }));
       }
     });
@@ -43,17 +55,21 @@ export const UserProvider = ({ children }) => {
     dispatch({ type: "NOT_LOADING" });
   }, []);
 
-  async function checkUser(dispatch) {
+  async function checkUser() {
+    dispatch({ type: "LOADING" });
     try {
       const user = await Auth.currentAuthenticatedUser();
       dispatch({ type: "LOGIN_USER", payload: user });
     } catch (err) {
       dispatch({ type: "AUTH_ERROR", payload: err });
     }
+    dispatch({ type: "NOT_LOADING" });
   }
 
   async function signOut() {
+    dispatch({ type: "LOADING" });
     await Auth.signOut({ global: true });
+    dispatch({ type: "NOT_LOADING" });
   }
 
   const GoogleSignIn = () => {
@@ -66,12 +82,23 @@ export const UserProvider = ({ children }) => {
   // to re-render as well. If it does, we want to make sure to give the `UserContext.Provider` the
   // same value as long as the user data is the same. If you have multiple other "controller"
   // components or Providers above this component, then this will be a performance booster.
-  React.useMemo(() => ({ userState, checkUser, signOut, GoogleSignIn }), []);
+  //   React.useMemo(() => ({ userState, checkUser, signOut, GoogleSignIn }), [userState]);
 
   // Finally, return the interface that we want to expose to our other components
   return (
-    <UserContext.Provider value={{ userState, signOut, checkUser, GoogleSignIn, loading }}>
-      {children}
+    <UserContext.Provider
+      value={{
+        user: userState.user,
+        loading: userState.loading,
+        isAuthenticated: userState.isAuthenticated,
+        isAuthenticating: userState.isAuthenticating,
+        errors: userState.errors,
+        signOut,
+        checkUser,
+        GoogleSignIn,
+      }}
+    >
+      {props.children}
     </UserContext.Provider>
   );
 };
@@ -79,7 +106,7 @@ export const UserProvider = ({ children }) => {
 // We also create a simple custom hook to read these values from. We want our React components
 // to know as little as possible on how everything is handled, so we are not only abtracting them from
 // the fact that we are using React's context, but we also skip some imports.
-export const useUser = () => {
+export const useUserContext = () => {
   const context = React.useContext(UserContext);
 
   if (context === undefined) {

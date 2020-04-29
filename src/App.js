@@ -1,8 +1,8 @@
 import React from "react";
-import { useUser } from "./context/auth/user";
+import { useUserContext } from "./context/auth/user";
 
 function App() {
-  const { userState, GoogleSignIn, signOut, loading } = useUser();
+  const { user, GoogleSignIn, signOut, loading } = useUserContext();
 
   const Welcome = (props) => {
     return (
@@ -22,7 +22,7 @@ function App() {
   return (
     !loading && (
       <div>
-        {userState.user ? <Welcome /> : <Login />}
+        {user ? <Welcome /> : <Login />}
         <button onClick={GoogleSignIn}>Google Sign In</button>
         <button onClick={signOut}>Google SignOut</button>
       </div>
