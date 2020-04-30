@@ -45,6 +45,9 @@ const App3 = () => {
         // hostedDomain="gmail.com"
       />
       <GoogleLogout buttonText="LogOut" onLogoutSuccess={logout} />
+      <br />
+      <hr />
+      <div class="g-signin2" data-onsuccess="onSignIn"></div>
     </div>
   );
 };
