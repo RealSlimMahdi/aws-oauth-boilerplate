@@ -1,0 +1,65 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "[javascript]": {
+      "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "emmet.triggerExpansionOnTab": true,
+    "emmet.includeLanguages": {
+      "javascript": "javascriptreact"
+    },
+    "files.associations": {
+      "*.js": "javascriptreact"
+    },
+    "gitlens.defaultDateStyle": "absolute",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 750,
+    "editor.wordWrap": "on",
+    "sync.gist": "575232910f1f87244f1aa89be1c23961",
+    "sync.quietSync": false,
+    "sync.removeExtensions": true,
+    "sync.syncExtensions": true,
+    "sync.autoDownload": false,
+    "sync.autoUpload": false,
+    "sync.forceDownload": false,
+    "editor.formatOnSave": true,
+    "git.path": "/usr/local/git/share/info",
+    "git.autofetch": true,
+    "workbench.colorCustomizations": {
+      "activityBarBadge.background": "#2979FF",
+      "list.activeSelectionForeground": "#2979FF",
+      "list.inactiveSelectionForeground": "#2979FF",
+      "list.highlightForeground": "#2979FF",
+      "scrollbarSlider.activeBackground": "#2979FF50",
+      "editorSuggestWidget.highlightForeground": "#2979FF",
+      "textLink.foreground": "#2979FF",
+      "progressBar.background": "#2979FF",
+      "pickerGroup.foreground": "#2979FF",
+      "tab.activeBorder": "#2979FF",
+      "notificationLink.foreground": "#2979FF",
+      "editorWidget.resizeBorder": "#2979FF",
+      "editorWidget.border": "#2979FF",
+      "settings.modifiedItemIndicator": "#2979FF",
+      "settings.headerForeground": "#2979FF",
+      "panelTitle.activeBorder": "#2979FF",
+      "breadcrumb.activeSelectionForeground": "#2979FF",
+      "menu.selectionForeground": "#2979FF",
+      "menubar.selectionForeground": "#2979FF"
+    },
+    "explorer.confirmDelete": false,
+    "workbench.iconTheme": "vscode-icons",
+    "editor.formatOnPaste": true,
+    "html.format.endWithNewline": true,
+    "html.format.indentHandlebars": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "prettier.printWidth": 120,
+    "terminal.integrated.fontFamily": "monospace",
+    "workbench.colorTheme": "Blink (rainglow)",
+    "editor.formatOnType": true,
+    "emojisense.languages": {}
+  }
+}

@@ -36,7 +36,7 @@ const App3 = () => {
     <div>
       {userDetails && <h3>Welcome mr {userDetails.givenName}</h3>}
       <GoogleLogin
-        clientId={process.env.REACT_APP_GOOGLE_SECRET_CODE}
+        clientId="169777207398-uk4o9l37mrgmfb9inq4so6i8k87qq9ip.apps.googleusercontent.com"
         fields="first_name,last_name,email,picture"
         onSuccess={responseGoogle}
         onFailure={responseGoogle}

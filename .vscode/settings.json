@@ -1,0 +1,43 @@
+{
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "emmet.triggerExpansionOnTab": true,
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact"
+  },
+  "files.associations": {
+    "*.js": "javascriptreact"
+  },
+  "gitlens.defaultDateStyle": "absolute",
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 750,
+  "editor.wordWrap": "on",
+  "sync.quietSync": false,
+  "sync.removeExtensions": true,
+  "sync.syncExtensions": true,
+  "sync.autoDownload": false,
+  "sync.autoUpload": false,
+  "sync.forceDownload": false,
+  "editor.formatOnSave": true,
+  "git.autofetch": true,
+  "explorer.confirmDelete": false,
+  "workbench.iconTheme": "vscode-icons",
+  "editor.formatOnPaste": true,
+  "html.format.endWithNewline": true,
+  "html.format.indentHandlebars": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.printWidth": 120,
+  "terminal.integrated.fontFamily": "monospace",
+  "workbench.colorTheme": "Blink (rainglow)",
+  "editor.formatOnType": true,
+  "emojisense.languages": {
+    "plaintext": true,
+    "javascript": true,
+    "javascriptreact": true,
+    "handlebars": true,
+    "python": true,
+    "r": true
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always"
+}
